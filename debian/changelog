@@ -1,0 +1,10 @@
+bazaar (0.10.1~git20261114.3c12e48a-1) unstable; urgency=medium
+
+  * New upstream snapshot for BlankOn, from github.com/BlankOn/bazaar main at
+    3c12e48a (upstream GNOME World/bazaar 9560ad18, version 0.10.1 not yet
+    released, plus the downstream "APT system updates" patch).
+  * Add a "System Updates" card to the Library page that lists and installs
+    APT system updates through PackageKit (see ai-patches/PLAN.md).
+  * Recommend packagekit for the System Updates card.
+
+ -- Herpiko Dwi Aguno <herpiko@gmail.com>  Sat, 14 Nov 2026 23:43:19 +0700

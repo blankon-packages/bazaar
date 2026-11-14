@@ -1,0 +1,11 @@
+#!/usr/bin/make -f
+
+export DEB_BUILD_MAINT_OPTIONS = hardening=+all
+
+%:
+	dh $@
+
+# libbge has no symbols file yet: tie dependants to this upstream version,
+# since upstream does not promise ABI stability within soname 0.
+override_dh_makeshlibs:
+	dh_makeshlibs -V

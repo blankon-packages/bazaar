@@ -1,0 +1,100 @@
+Source: bazaar
+Section: utils
+Priority: optional
+Maintainer: BlankOn Developers <blankon-dev@googlegroups.com>
+Uploaders: Herpiko Dwi Aguno <herpiko@gmail.com>
+Build-Depends: appstream,
+               blueprint-compiler,
+               debhelper-compat (= 13),
+               desktop-file-utils,
+               gettext,
+               libadwaita-1-dev (>= 1.8),
+               libappstream-dev (>= 1.0),
+               libdbus-1-dev (>= 1.12),
+               libdex-dev (>= 1.2.0),
+               libflatpak-dev (>= 1.9),
+               libglib2.0-dev,
+               libglib2.0-dev-bin,
+               libglycin-2-dev (>= 2.0),
+               libglycin-gtk4-2-dev (>= 2.0),
+               libgtk-4-dev (>= 4.22.1),
+               libgtksourceview-5-dev (>= 5.17),
+               libjson-glib-dev (>= 1.10.0),
+               libmalcontent-0-dev (>= 0.12.0),
+               libmd4c-dev (>= 0.5.1),
+               libproxy-dev (>= 0.5),
+               libsecret-1-dev (>= 0.20),
+               libsoup-3.0-dev (>= 3.6.0),
+               libsystemd-dev (>= 245),
+               libwebkitgtk-6.0-dev (>= 2.50.2),
+               libxml2-utils,
+               libxmlb-dev (>= 0.3.4),
+               libyaml-dev (>= 0.2.5),
+               meson (>= 1.0.0),
+               pkgconf,
+               python3,
+               python3-babel,
+               valac
+Standards-Version: 4.7.4
+Homepage: https://usebazaar.org
+Vcs-Browser: https://github.com/BlankOn/bazaar
+Vcs-Git: https://github.com/BlankOn/bazaar.git
+Rules-Requires-Root: no
+
+Package: bazaar
+Architecture: any
+Depends: appstream,
+         dconf-gsettings-backend | gsettings-backend,
+         flatpak,
+         libbge0 (= ${binary:Version}),
+         ${misc:Depends},
+         ${shlibs:Depends}
+Recommends: glycin-loaders,
+            packagekit
+Description: Flatpak app store with Adwaita and GTK4
+ Bazaar is an app store for Flatpak applications built with GTK4 and
+ libadwaita. It lets you discover, install, update and remove Flatpak apps,
+ browse curated and Flathub content, and manage add-ons.
+ .
+ This BlankOn build also shows pending APT system package updates on the
+ Library page and installs them through PackageKit, either on the next
+ restart (offline update) or immediately. Install packagekit for this.
+
+Package: libbge0
+Section: libs
+Architecture: any
+Multi-Arch: same
+Depends: ${misc:Depends},
+         ${shlibs:Depends}
+Description: Library to make GTK Extensions for Bazaar
+ Bazaar GTK Extensions (bge) is a small library of GTK4 widgets used by
+ Bazaar, the Flatpak app store, such as an animation framework, a carousel
+ and a Markdown renderer.
+ .
+ This package contains the shared library.
+
+Package: libbge-dev
+Section: libdevel
+Architecture: any
+Multi-Arch: same
+Depends: libbge0 (= ${binary:Version}),
+         libgtk-4-dev,
+         libgtksourceview-5-dev,
+         libmd4c-dev,
+         ${misc:Depends}
+Description: Library to make GTK Extensions for Bazaar (header files)
+ Bazaar GTK Extensions (bge) is a small library of GTK4 widgets used by
+ Bazaar, the Flatpak app store, such as an animation framework, a carousel
+ and a Markdown renderer.
+ .
+ This package contains the development files.
+
+Package: bge-demo
+Architecture: any
+Depends: ${misc:Depends},
+         ${shlibs:Depends}
+Description: Bazaar GTK Extensions Demo
+ Bazaar GTK Extensions (bge) is a small library of GTK4 widgets used by
+ Bazaar, the Flatpak app store.
+ .
+ This package contains a small program demonstrating the library.

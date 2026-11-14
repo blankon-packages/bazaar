@@ -1,0 +1,12 @@
+usr/bin/bazaar
+usr/bin/bazaar-daemon
+usr/bin/bazaar-dl-worker
+usr/lib/*/bazaar/libbazaar-login-page.so
+usr/lib/systemd/user/io.github.kolunmi.Bazaar.service
+usr/share/applications/
+usr/share/dbus-1/services/
+usr/share/glib-2.0/schemas/
+usr/share/gnome-shell/search-providers/
+usr/share/icons/
+usr/share/locale/
+usr/share/metainfo/

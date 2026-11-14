@@ -1,0 +1,3 @@
+usr/include/bge/
+usr/lib/*/libbge.so
+usr/lib/*/pkgconfig/bge.pc

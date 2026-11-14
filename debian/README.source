@@ -1,0 +1,97 @@
+bazaar for BlankOn
+==================
+
+Where the source comes from
+---------------------------
+
+The upstream source is BlankOn's fork of Bazaar:
+
+    https://github.com/BlankOn/bazaar  (branch main)
+
+which is GNOME World's Bazaar (https://gitlab.gnome.org/World/bazaar) plus
+the downstream "APT system updates" patch, kept in the fork itself (see
+ai-patches/PLAN.md there). Nothing is patched here: debian/patches is empty
+on purpose, because the fork is where downstream code changes live.
+The snapshot packaged by the current debian/changelog entry is commit
+3c12e48ad002c40e182659d4ad2dd02e81a06e20.
+
+The version 0.10.1~gitYYYYMMDD.<commit> means "a snapshot before upstream
+0.10.1 is released": upstream's version.sh already says 0.10.1, the last tag
+is v0.10.0, and "~" sorts the snapshot before a real 0.10.1.
+
+Layout of this repository
+-------------------------
+
+This repository holds debian/ only. The upstream source comes from the
+--source repository given to irgsh-cli: irgsh-cli clones it at
+--source-branch, packs it as bazaar_<version>.orig.tar.xz (the upstream part
+of debian/changelog's version), then runs "dpkg-source --build" here. The
+builder unpacks the .dsc and builds the binaries from that.
+
+So:
+
+  * The packaged code is whatever --source-branch points to when you
+    submit. Bump debian/changelog to match the commit you package (version
+    0.10.1~gitYYYYMMDD.<short-commit>-1).
+  * Code changes go to the fork (github.com/BlankOn/bazaar), not here.
+    debian/patches is not used.
+  * dpkg-source prints "ignoring deletion of file ..." for every upstream
+    file, because they are in the orig tarball but not in this directory.
+    That is expected and harmless.
+  * Do not add files outside debian/ (a top-level .gitignore, for example):
+    with 3.0 (quilt) a file that differs from the orig tarball aborts the
+    source build. Ignore build products with .git/info/exclude instead:
+
+        printf '/obj-*/\n/debian/.debhelper/\n/debian/debhelper-build-stamp\n/debian/files\n/debian/*.substvars\n/debian/*.debhelper.log\n/debian/bazaar/\n/debian/libbge0/\n/debian/libbge-dev/\n/debian/bge-demo/\n/debian/tmp/\n/.pc/\n' >> .git/info/exclude
+
+Packaging a new upstream snapshot
+---------------------------------
+
+    dch -v 0.10.1~git$(date +%Y%m%d).<short-commit>-1 "New upstream snapshot."
+
+then submit with --source-branch pointing at that commit's branch.
+
+Building and submitting
+-----------------------
+
+Submit to irgsh (both repositories over https; the package repository is
+this one, pushed somewhere public):
+
+    irgsh-cli package \
+        --source https://github.com/BlankOn/bazaar \
+        --source-branch main \
+        --package <https URL of this repository> \
+        --package-branch master \
+        --skip-local-build \
+        --experimental
+
+--skip-local-build is needed when the build dependencies are installed on
+the submitting machine: irgsh-cli then tries a local binary build of this
+directory, which has no source in it, so that build cannot work. (Without
+the build dependencies installed, irgsh-cli skips that build by itself.)
+Drop --experimental to inject into the official dev repository.
+irgsh-cli checks that Uploaders in debian/control and the last
+debian/changelog entry match the identity of the signing key.
+
+Local test build, the way the builder does it (needs the Build-Depends;
+"sudo mk-build-deps -ir debian/control" installs them):
+
+    V=0.10.1~git20261114.3c12e48a
+    git -C ../bazaar archive --prefix=bazaar-$V/ <commit> | xz > ../bazaar_$V.orig.tar.xz
+    dpkg-source --build .
+    cd .. && dpkg-source -x bazaar_$V-1.dsc && cd bazaar-$V
+    dpkg-buildpackage -us -uc -b
+
+Binary packages
+---------------
+
+The split follows Debian's own bazaar packaging (0.9.4-2), so these packages
+replace Debian's cleanly:
+
+  bazaar        the app, its daemon, download worker and data files
+  libbge0       libbge.so.0, the "Bazaar GTK Extensions" library
+  libbge-dev    libbge headers, .so link and pkg-config file
+  bge-demo      demo program for libbge
+
+packagekit is a Recommends of bazaar: without it the System Updates card
+stays hidden and Bazaar behaves like upstream.
