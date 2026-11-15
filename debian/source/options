@@ -1,0 +1,3 @@
+# The package repository has its own top-level README.md (about this
+# packaging), which differs from upstream's; it is not part of the package.
+extend-diff-ignore = "^README\.md$"

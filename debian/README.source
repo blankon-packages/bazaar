@@ -43,7 +43,11 @@ So:
     That is expected and harmless.
   * Do not add files outside debian/ (a top-level .gitignore, for example):
     with 3.0 (quilt) a file that differs from the orig tarball aborts the
-    source build. Ignore build products with .git/info/exclude instead:
+    source build ("aborting due to unexpected upstream changes"). The
+    top-level README.md, about this packaging, is the exception: it is
+    listed in debian/source/options (extend-diff-ignore), so dpkg-source
+    ignores it and the package keeps upstream's README.md. Add any other
+    such file to that pattern. Ignore build products with .git/info/exclude instead:
 
         printf '/obj-*/\n/debian/.debhelper/\n/debian/debhelper-build-stamp\n/debian/files\n/debian/*.substvars\n/debian/*.debhelper.log\n/debian/warsi/\n/debian/libbge0/\n/debian/libbge-dev/\n/debian/bge-demo/\n/debian/tmp/\n/.pc/\n' >> .git/info/exclude
 
