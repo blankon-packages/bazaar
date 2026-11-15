@@ -16,10 +16,10 @@ the fork itself (see
 ai-patches/PLAN.md there). Nothing is patched here: debian/patches is empty
 on purpose, because the fork is where downstream code changes live.
 The snapshot packaged by the current debian/changelog entry is commit
-c1115789 (the rebrand itself is 22976690, reworded in 6639f360; GL
-renderer fix 558323cd).
+67a3245a (the rebrand itself is 22976690, reworded in 6639f360; GL
+renderer fix 558323cd; search keywords 75a05c98).
 
-The version 0.10.1~gitYYYYMMDD.<commit> means "a snapshot before upstream
+The version 0.10.1~gitYYYYMMDDHHMM.<commit> means "a snapshot before upstream
 0.10.1 is released": upstream's version.sh already says 0.10.1, the last tag
 is v0.10.0, and "~" sorts the snapshot before a real 0.10.1.
 
@@ -36,7 +36,7 @@ So:
 
   * The packaged code is whatever --source-branch points to when you
     submit. Bump debian/changelog to match the commit you package (version
-    0.10.1~gitYYYYMMDD.<short-commit>-1).
+    0.10.1~gitYYYYMMDDHHMM.<short-commit>-1).
   * Code changes go to the fork (github.com/BlankOn/bazaar), not here.
     debian/patches is not used.
   * dpkg-source prints "ignoring deletion of file ..." for every upstream
@@ -55,7 +55,17 @@ So:
 Packaging a new upstream snapshot
 ---------------------------------
 
-    dch -v 0.10.1~git$(date +%Y%m%d).<short-commit>-1 "New upstream snapshot."
+    C=<commit>
+    dch -v 0.10.1~git$(git -C ../bazaar log -1 --format=%cd --date=format:%Y%m%d%H%M $C).$(git -C ../bazaar rev-parse --short=8 $C)-1 "New upstream snapshot."
+
+The commit time (YYYYMMDDHHMM, not only the date) is part of the version
+on purpose: two snapshots made on the same day would otherwise be ordered
+by their commit hashes, which is random (…20261115.67a3245a sorts before
+…20261115.c1115789). Since 0.10.1~git202611151833 the time is always
+included; never go back to a date-only version, it would sort lower.
+Check before uploading:
+
+    dpkg --compare-versions <new> gt <previous> && echo ok
 
 then submit with --source-branch pointing at that commit's branch.
 
@@ -84,7 +94,7 @@ debian/changelog entry match the identity of the signing key.
 Local test build, the way the builder does it (needs the Build-Depends;
 "sudo mk-build-deps -ir debian/control" installs them):
 
-    V=0.10.1~git20261115.c1115789
+    V=0.10.1~git202611151833.67a3245a
     git -C ../bazaar archive --prefix=warsi-$V/ <commit> | xz > ../warsi_$V.orig.tar.xz
     dpkg-source --build .
     cd .. && dpkg-source -x warsi_$V-1.dsc && cd warsi-$V

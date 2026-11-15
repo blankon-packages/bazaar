@@ -1,3 +1,15 @@
+warsi (0.10.1~git202611151833.67a3245a-1) unstable; urgency=medium
+
+  * New snapshot from github.com/BlankOn/bazaar main at 67a3245a: desktop
+    file keywords "Warung Aplikasi", "Bazaar" and "GNOME Software", and the
+    English search words in every translation, so app launchers (Praya,
+    GNOME Shell) find Warsi by "warsi", "warung aplikasi", "store",
+    "software", "gnome software" and "bazaar" in English and Indonesian.
+  * Snapshot versions now carry the commit time (YYYYMMDDHHMM), so two
+    snapshots of the same day sort by time, not by commit hash.
+
+ -- Herpiko Dwi Aguno <herpiko@gmail.com>  Sun, 15 Nov 2026 18:33:39 +0700
+
 warsi (0.10.1~git20261115.c1115789-1) unstable; urgency=medium
 
   * New snapshot from github.com/BlankOn/bazaar main at c1115789: use GTK's
