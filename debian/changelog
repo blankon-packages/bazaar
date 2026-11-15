@@ -1,3 +1,12 @@
+warsi (0.10.1~git20261115.c1115789-1) unstable; urgency=medium
+
+  * New snapshot from github.com/BlankOn/bazaar main at c1115789: use GTK's
+    GL renderer unless GSK_RENDERER is set. GTK 4.23's default Vulkan
+    renderer draws the Search page without text and with blank tiles
+    (ai-patches/DIFF.md hook H13).
+
+ -- Herpiko Dwi Aguno <herpiko@gmail.com>  Sun, 15 Nov 2026 16:10:25 +0700
+
 warsi (0.10.1~git20261115.bae31466-2) unstable; urgency=medium
 
   * Build-Depends: libdex-dev (>= 1.2~beta) instead of (>= 1.2.0). libdex's
