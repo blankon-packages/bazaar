@@ -1,3 +1,12 @@
+warsi (0.10.1~git20261115.bae31466-1) unstable; urgency=medium
+
+  * New snapshot from github.com/BlankOn/bazaar main at bae31466: the About
+    dialog now says "Originally Bazaar, patched by BlankOn Linux"
+    (Indonesian "Dibangun dari Bazaar, dimodifikasi oleh BlankOn Linux"),
+    and the AppStream description no longer says "heavily".
+
+ -- Herpiko Dwi Aguno <herpiko@gmail.com>  Sun, 15 Nov 2026 15:35:44 +0700
+
 warsi (0.10.1~git20261115.ba13800e-1) unstable; urgency=medium
 
   * Rename the package to warsi: the BlankOn fork is rebranded as Warsi

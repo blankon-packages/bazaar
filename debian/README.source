@@ -16,7 +16,7 @@ the fork itself (see
 ai-patches/PLAN.md there). Nothing is patched here: debian/patches is empty
 on purpose, because the fork is where downstream code changes live.
 The snapshot packaged by the current debian/changelog entry is commit
-ba13800e (the rebrand itself is 22976690).
+bae31466 (the rebrand itself is 22976690, reworded in 6639f360).
 
 The version 0.10.1~gitYYYYMMDD.<commit> means "a snapshot before upstream
 0.10.1 is released": upstream's version.sh already says 0.10.1, the last tag
@@ -83,7 +83,7 @@ debian/changelog entry match the identity of the signing key.
 Local test build, the way the builder does it (needs the Build-Depends;
 "sudo mk-build-deps -ir debian/control" installs them):
 
-    V=0.10.1~git20261115.ba13800e
+    V=0.10.1~git20261115.bae31466
     git -C ../bazaar archive --prefix=warsi-$V/ <commit> | xz > ../warsi_$V.orig.tar.xz
     dpkg-source --build .
     cd .. && dpkg-source -x warsi_$V-1.dsc && cd warsi-$V
