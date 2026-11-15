@@ -1,3 +1,12 @@
+warsi (0.10.1~git20261115.bae31466-2) unstable; urgency=medium
+
+  * Build-Depends: libdex-dev (>= 1.2~beta) instead of (>= 1.2.0). libdex's
+    symbols file takes warsi's minimum libdex-1-1 version from this field,
+    and sinambung only has 1.2~beta-2, so -1 was not installable. Every
+    libdex symbol warsi uses exists in 1.2~beta.
+
+ -- Herpiko Dwi Aguno <herpiko@gmail.com>  Sun, 15 Nov 2026 15:51:59 +0700
+
 warsi (0.10.1~git20261115.bae31466-1) unstable; urgency=medium
 
   * New snapshot from github.com/BlankOn/bazaar main at bae31466: the About
