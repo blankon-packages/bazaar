@@ -1,3 +1,14 @@
+warsi (0.10.1~git202611151954.1e2931e4-1) unstable; urgency=medium
+
+  * New snapshot from github.com/BlankOn/bazaar main at 1e2931e4: use GTK's
+    Cairo renderer where GL only runs in software (llvmpipe, e.g. a virtual
+    machine without 3D acceleration). GTK's GPU renderers compiled shaders
+    on the main thread there, so opening the Search tab froze the window
+    for 10-20 seconds ("not responding", crashes). Real GPUs keep the GL
+    renderer; GSK_RENDERER still overrides (ai-patches/DIFF.md hook H13).
+
+ -- Herpiko Dwi Aguno <herpiko@gmail.com>  Sun, 15 Nov 2026 19:54:47 +0700
+
 warsi (0.10.1~git202611151833.67a3245a-1) unstable; urgency=medium
 
   * New snapshot from github.com/BlankOn/bazaar main at 67a3245a: desktop
