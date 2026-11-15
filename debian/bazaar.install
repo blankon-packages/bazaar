@@ -1,3 +1,4 @@
+etc/xdg/autostart/bazaar.desktop
 usr/bin/bazaar
 usr/bin/bazaar-daemon
 usr/bin/bazaar-dl-worker
