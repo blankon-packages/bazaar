@@ -1,19 +1,22 @@
-bazaar for BlankOn
-==================
+warsi for BlankOn
+=================
 
 Where the source comes from
 ---------------------------
 
-The upstream source is BlankOn's fork of Bazaar:
+Warsi is BlankOn Linux's app store: Bazaar, heavily patched and rebranded
+(app ID id.blankonlinux.warsi). The upstream source is BlankOn's fork of
+Bazaar:
 
     https://github.com/BlankOn/bazaar  (branch main)
 
 which is GNOME World's Bazaar (https://gitlab.gnome.org/World/bazaar) plus
-the downstream "APT system updates" patch, kept in the fork itself (see
+the downstream "APT system updates" patch and the "Warsi rebrand", kept in
+the fork itself (see
 ai-patches/PLAN.md there). Nothing is patched here: debian/patches is empty
 on purpose, because the fork is where downstream code changes live.
 The snapshot packaged by the current debian/changelog entry is commit
-3c12e48ad002c40e182659d4ad2dd02e81a06e20.
+ba13800e (the rebrand itself is 22976690).
 
 The version 0.10.1~gitYYYYMMDD.<commit> means "a snapshot before upstream
 0.10.1 is released": upstream's version.sh already says 0.10.1, the last tag
@@ -24,7 +27,7 @@ Layout of this repository
 
 This repository holds debian/ only. The upstream source comes from the
 --source repository given to irgsh-cli: irgsh-cli clones it at
---source-branch, packs it as bazaar_<version>.orig.tar.xz (the upstream part
+--source-branch, packs it as warsi_<version>.orig.tar.xz (the upstream part
 of debian/changelog's version), then runs "dpkg-source --build" here. The
 builder unpacks the .dsc and builds the binaries from that.
 
@@ -42,7 +45,7 @@ So:
     with 3.0 (quilt) a file that differs from the orig tarball aborts the
     source build. Ignore build products with .git/info/exclude instead:
 
-        printf '/obj-*/\n/debian/.debhelper/\n/debian/debhelper-build-stamp\n/debian/files\n/debian/*.substvars\n/debian/*.debhelper.log\n/debian/bazaar/\n/debian/libbge0/\n/debian/libbge-dev/\n/debian/bge-demo/\n/debian/tmp/\n/.pc/\n' >> .git/info/exclude
+        printf '/obj-*/\n/debian/.debhelper/\n/debian/debhelper-build-stamp\n/debian/files\n/debian/*.substvars\n/debian/*.debhelper.log\n/debian/warsi/\n/debian/libbge0/\n/debian/libbge-dev/\n/debian/bge-demo/\n/debian/tmp/\n/.pc/\n' >> .git/info/exclude
 
 Packaging a new upstream snapshot
 ---------------------------------
@@ -76,22 +79,24 @@ debian/changelog entry match the identity of the signing key.
 Local test build, the way the builder does it (needs the Build-Depends;
 "sudo mk-build-deps -ir debian/control" installs them):
 
-    V=0.10.1~git20261114.3c12e48a
-    git -C ../bazaar archive --prefix=bazaar-$V/ <commit> | xz > ../bazaar_$V.orig.tar.xz
+    V=0.10.1~git20261115.ba13800e
+    git -C ../bazaar archive --prefix=warsi-$V/ <commit> | xz > ../warsi_$V.orig.tar.xz
     dpkg-source --build .
-    cd .. && dpkg-source -x bazaar_$V-1.dsc && cd bazaar-$V
+    cd .. && dpkg-source -x warsi_$V-1.dsc && cd warsi-$V
     dpkg-buildpackage -us -uc -b
 
 Binary packages
 ---------------
 
-The split follows Debian's own bazaar packaging (0.9.4-2), so these packages
-replace Debian's cleanly:
+The split follows Debian's own bazaar packaging (0.9.4-2). The app package
+is named warsi and installs no file of Debian's bazaar package (different
+program names and app ID), so the two can be installed together. The
+libbge packages keep their names and replace Debian's:
 
-  bazaar        the app, its daemon, download worker and data files
+  warsi         the app, its daemon, download worker and data files
   libbge0       libbge.so.0, the "Bazaar GTK Extensions" library
   libbge-dev    libbge headers, .so link and pkg-config file
   bge-demo      demo program for libbge
 
-packagekit is a Recommends of bazaar: without it the System Updates card
-stays hidden and Bazaar behaves like upstream.
+packagekit is a Recommends of warsi: without it the System Updates card
+stays hidden and Warsi behaves like upstream Bazaar.

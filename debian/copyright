@@ -2,8 +2,9 @@ Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: bazaar
 Upstream-Contact: Kolunmi <kolunmi@posteo.net>
 Source: https://gitlab.gnome.org/World/bazaar
-Comment: Packaged from the BlankOn fork https://github.com/BlankOn/bazaar,
- which adds the downstream "APT system updates" patch (ai-patches/).
+Comment: Packaged as warsi from the BlankOn fork
+ https://github.com/BlankOn/bazaar, which adds the downstream "APT system
+ updates" patch and rebrands Bazaar as Warsi (ai-patches/).
 
 Files: *
 Copyright: 2025-2026 Adam Masciola (Kolunmi)
@@ -13,6 +14,14 @@ Copyright: 2025-2026 Adam Masciola (Kolunmi)
            2026 Evelyn M
            2026 Zelda Ahmed <zoeyahmed10@proton.me>
            2026 The Bazaar Contributors
+License: GPL-3.0-or-later
+
+Files: src/bz-rebrand.c
+       src/bz-rebrand.h
+       data/icons/hicolor/scalable/apps/id.blankonlinux.warsi.svg
+       data/icons/hicolor/scalable/apps/id.blankonlinux.warsi.Devel.svg
+       data/icons/hicolor/symbolic/apps/id.blankonlinux.warsi-symbolic.svg
+Copyright: 2026 BlankOn Linux
 License: GPL-3.0-or-later
 
 Files: src/bz-age-rating-dialog.c

@@ -1,3 +1,18 @@
+warsi (0.10.1~git20261115.ba13800e-1) unstable; urgency=medium
+
+  * Rename the package to warsi: the BlankOn fork is rebranded as Warsi
+    (app ID id.blankonlinux.warsi), based on Bazaar. New snapshot from
+    github.com/BlankOn/bazaar main at ba13800e (upstream GNOME World/bazaar
+    9560ad18, plus the downstream "APT system updates" and "Warsi rebrand"
+    patches, see ai-patches/PLAN.md).
+  * Desktop notifications for pending Flatpak and APT updates; install the
+    system autostart file etc/xdg/autostart/warsi.desktop.
+  * Installed names follow the rebrand: /usr/bin/warsi{,-daemon,-dl-worker},
+    id.blankonlinux.warsi.* data files, warsi.mo translations. No file is
+    shared with the bazaar package any more, so both can be installed.
+
+ -- Herpiko Dwi Aguno <herpiko@gmail.com>  Sun, 15 Nov 2026 15:00:00 +0700
+
 bazaar (0.10.1~git20261114.3c12e48a-1) unstable; urgency=medium
 
   * New upstream snapshot for BlankOn, from github.com/BlankOn/bazaar main at

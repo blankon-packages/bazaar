@@ -1,4 +1,4 @@
-Source: bazaar
+Source: warsi
 Section: utils
 Priority: optional
 Maintainer: BlankOn Developers <blankon-dev@googlegroups.com>
@@ -36,12 +36,12 @@ Build-Depends: appstream,
                python3-babel,
                valac
 Standards-Version: 4.7.4
-Homepage: https://usebazaar.org
+Homepage: https://github.com/BlankOn/bazaar
 Vcs-Browser: https://github.com/BlankOn/bazaar
 Vcs-Git: https://github.com/BlankOn/bazaar.git
 Rules-Requires-Root: no
 
-Package: bazaar
+Package: warsi
 Architecture: any
 Depends: appstream,
          dconf-gsettings-backend | gsettings-backend,
@@ -51,14 +51,19 @@ Depends: appstream,
          ${shlibs:Depends}
 Recommends: glycin-loaders,
             packagekit
-Description: Flatpak app store with Adwaita and GTK4
- Bazaar is an app store for Flatpak applications built with GTK4 and
- libadwaita. It lets you discover, install, update and remove Flatpak apps,
- browse curated and Flathub content, and manage add-ons.
+Description: BlankOn Linux app store for Flatpak apps and system updates
+ Warsi is BlankOn Linux's app store, built with GTK4 and libadwaita. It lets
+ you discover, install, update and remove Flatpak apps, browse curated and
+ Flathub content, and manage add-ons.
  .
- This BlankOn build also shows pending APT system package updates on the
- Library page and installs them through PackageKit, either on the next
- restart (offline update) or immediately. Install packagekit for this.
+ It also shows pending APT system package updates on the Library page and
+ installs them through PackageKit, either on the next restart (offline
+ update) or immediately, and notifies about app and system updates.
+ Install packagekit for the system updates.
+ .
+ Warsi is based on Bazaar (https://usebazaar.org), heavily patched by
+ BlankOn Linux. It has its own app ID (id.blankonlinux.warsi) and can be
+ installed next to Bazaar.
 
 Package: libbge0
 Section: libs
