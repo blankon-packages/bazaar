@@ -16,8 +16,9 @@ the fork itself (see
 ai-patches/PLAN.md there). Nothing is patched here: debian/patches is empty
 on purpose, because the fork is where downstream code changes live.
 The snapshot packaged by the current debian/changelog entry is commit
-1e2931e4 (the rebrand itself is 22976690, reworded in 6639f360; renderer
-choice 558323cd and e2eed3a7; search keywords 75a05c98).
+ebeddb2b (the rebrand itself is 22976690, reworded in 6639f360; renderer
+choice 558323cd and e2eed3a7; search keywords 75a05c98; .deb installer
+45f2b9bb).
 
 The version 0.10.1~gitYYYYMMDDHHMM.<commit> means "a snapshot before upstream
 0.10.1 is released": upstream's version.sh already says 0.10.1, the last tag
@@ -94,7 +95,7 @@ debian/changelog entry match the identity of the signing key.
 Local test build, the way the builder does it (needs the Build-Depends;
 "sudo mk-build-deps -ir debian/control" installs them):
 
-    V=0.10.1~git202611151954.1e2931e4
+    V=0.10.1~git202611170130.ebeddb2b
     git -C ../bazaar archive --prefix=warsi-$V/ <commit> | xz > ../warsi_$V.orig.tar.xz
     dpkg-source --build .
     cd .. && dpkg-source -x warsi_$V-1.dsc && cd warsi-$V

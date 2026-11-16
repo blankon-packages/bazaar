@@ -51,7 +51,7 @@ Depends: appstream,
          ${shlibs:Depends}
 Recommends: glycin-loaders,
             packagekit
-Description: BlankOn Linux app store for Flatpak apps and system updates
+Description: BlankOn Linux app store: Flatpak apps, system updates, .deb files
  Warsi is BlankOn Linux's app store, built with GTK4 and libadwaita. It lets
  you discover, install, update and remove Flatpak apps, browse curated and
  Flathub content, and manage add-ons.
@@ -59,9 +59,14 @@ Description: BlankOn Linux app store for Flatpak apps and system updates
  It also shows pending APT system package updates on the Library page and
  installs them through PackageKit, either on the next restart (offline
  update) or immediately, and notifies about app and system updates.
- Install packagekit for the system updates.
  .
- Warsi is based on Bazaar (https://usebazaar.org), heavily patched by
+ Opening a downloaded .deb file shows Warsi's package installer, which
+ lists what else it installs or removes and installs it through
+ PackageKit. Warsi is the default application for .deb files in GNOME.
+ .
+ Install packagekit for the system updates and the .deb installer.
+ .
+ Warsi is based on Bazaar (https://usebazaar.org), patched by
  BlankOn Linux. It has its own app ID (id.blankonlinux.warsi) and can be
  installed next to Bazaar.
 

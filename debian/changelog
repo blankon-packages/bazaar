@@ -1,3 +1,16 @@
+warsi (0.10.1~git202611170130.ebeddb2b-1) unstable; urgency=medium
+
+  * New snapshot from github.com/BlankOn/bazaar main at ebeddb2b: Warsi
+    installs downloaded .deb files. Opening one shows an Install Package
+    dialog (the app's name and icon, installed version, other packages it
+    installs or removes) that installs it through PackageKit
+    (ai-patches/DIFF.md hooks H14-H15).
+  * Ship /etc/xdg/gnome-mimeapps.list, which makes Warsi the default
+    application for .deb files in GNOME instead of GNOME Software.
+  * Description: mention the .deb installer; drop "heavily".
+
+ -- Herpiko Dwi Aguno <herpiko@gmail.com>  Tue, 17 Nov 2026 01:31:06 +0700
+
 warsi (0.10.1~git202611151954.1e2931e4-1) unstable; urgency=medium
 
   * New snapshot from github.com/BlankOn/bazaar main at 1e2931e4: use GTK's

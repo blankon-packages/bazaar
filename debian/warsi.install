@@ -1,4 +1,5 @@
 etc/xdg/autostart/warsi.desktop
+etc/xdg/gnome-mimeapps.list
 usr/bin/warsi
 usr/bin/warsi-daemon
 usr/bin/warsi-dl-worker
