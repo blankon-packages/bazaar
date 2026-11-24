@@ -1,3 +1,12 @@
+warsi (0.10.1~git202611241842.9607b8c2-1) unstable; urgency=medium
+
+  * New snapshot from github.com/BlankOn/bazaar main at 9607b8c2: new Warsi
+    app icon and About logo, a market stall with an orange awning and a
+    blue body carrying a script "W" (with a grey development variant and a
+    one-colour symbolic icon).
+
+ -- Herpiko Dwi Aguno <herpiko@gmail.com>  Tue, 24 Nov 2026 18:42:59 +0700
+
 warsi (0.10.1~git202611170130.ebeddb2b-1) unstable; urgency=medium
 
   * New snapshot from github.com/BlankOn/bazaar main at ebeddb2b: Warsi
