@@ -24,6 +24,15 @@ Files: src/bz-rebrand.c
 Copyright: 2026 BlankOn Linux
 License: GPL-3.0-or-later
 
+Files: src/warsi-wordmark-symbolic.svg
+Copyright: 2026 BlankOn Linux
+License: GPL-3.0-or-later
+Comment: The Warsi logo (wordmark) is set in the Praise typeface by Robert
+ Leuschke, Copyright 2014 The Praise Project Authors
+ (https://github.com/googlefonts/praise-script), licensed under the SIL Open
+ Font License, Version 1.1 (https://openfontlicense.org). The font itself is
+ not shipped; the logo contains its letters as outlines.
+
 Files: src/bz-age-rating-dialog.c
        src/bz-age-rating-dialog.h
 Copyright: 2021 Endless OS Foundation LLC

@@ -16,9 +16,9 @@ the fork itself (see
 ai-patches/PLAN.md there). Nothing is patched here: debian/patches is empty
 on purpose, because the fork is where downstream code changes live.
 The snapshot packaged by the current debian/changelog entry is commit
-9607b8c2 (the rebrand itself is 22976690, reworded in 6639f360; renderer
+f19b429b (the rebrand itself is 22976690, reworded in 6639f360; renderer
 choice 558323cd and e2eed3a7; search keywords 75a05c98; .deb installer
-45f2b9bb; new icon 2bb49120).
+45f2b9bb; new icon 2bb49120; wordmark a62e05ec).
 
 The version 0.10.1~gitYYYYMMDDHHMM.<commit> means "a snapshot before upstream
 0.10.1 is released": upstream's version.sh already says 0.10.1, the last tag

@@ -1,3 +1,15 @@
+warsi (0.10.1~git202611242055.f19b429b-1) unstable; urgency=medium
+
+  * New snapshot from github.com/BlankOn/bazaar main at f19b429b: the Warsi
+    wordmark at the start of the header bar, in the accent colour; in the
+    narrow layout it replaces the title. The About dialog's Legal page
+    credits the logo's Praise typeface.
+  * debian/copyright: the wordmark (src/warsi-wordmark-symbolic.svg), with
+    a note on the Praise typeface by Robert Leuschke, SIL Open Font
+    License 1.1.
+
+ -- Herpiko Dwi Aguno <herpiko@gmail.com>  Tue, 24 Nov 2026 20:55:13 +0700
+
 warsi (0.10.1~git202611241842.9607b8c2-1) unstable; urgency=medium
 
   * New snapshot from github.com/BlankOn/bazaar main at 9607b8c2: new Warsi
