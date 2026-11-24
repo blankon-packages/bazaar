@@ -1,3 +1,14 @@
+warsi (0.10.1~git202611242236.b70cacdf-1) unstable; urgency=medium
+
+  * New snapshot from github.com/BlankOn/bazaar main at b70cacdf: a GNOME
+    Extensions tab after Search. It browses and searches GNOME Shell
+    extensions from extensions.gnome.org (topic pills, sorting, an
+    Installed view) and installs, enables, configures and removes them
+    through GNOME Shell (ai-patches/DIFF.md hooks H16-H17). The tab is
+    hidden outside GNOME Shell.
+
+ -- Herpiko Dwi Aguno <herpiko@gmail.com>  Tue, 24 Nov 2026 22:36:20 +0700
+
 warsi (0.10.1~git202611242055.f19b429b-1) unstable; urgency=medium
 
   * New snapshot from github.com/BlankOn/bazaar main at f19b429b: the Warsi
