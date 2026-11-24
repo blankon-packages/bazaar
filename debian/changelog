@@ -1,3 +1,12 @@
+warsi (0.10.1~git202611250113.f6652e48-1) unstable; urgency=medium
+
+  * New snapshot from github.com/BlankOn/bazaar main at f6652e48: fix the
+    GNOME Extensions tab never showing. It waited for the bus name
+    org.gnome.Shell.Extensions (the Extensions app, started only on
+    demand) instead of GNOME Shell's own org.gnome.Shell.
+
+ -- Herpiko Dwi Aguno <herpiko@gmail.com>  Wed, 25 Nov 2026 01:13:22 +0700
+
 warsi (0.10.1~git202611242236.b70cacdf-1) unstable; urgency=medium
 
   * New snapshot from github.com/BlankOn/bazaar main at b70cacdf: a GNOME
